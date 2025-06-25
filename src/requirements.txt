@@ -1,0 +1,6 @@
+streamlit
+transformers
+pandas
+matplotlib
+google-generativeai
+google.genai
