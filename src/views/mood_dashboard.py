@@ -66,7 +66,23 @@ emotions_col = st.multiselect("Select mood(s) to plot", valid_moods)
 
 
 if st.button("Generate Plot") and emotions_col:
-    st.line_chart(df.set_index('Date')[emotions_col])
+    colors = []
+    for em in emotions_col:
+      if em == "Joy":
+          colors.append("#edc02d")
+      elif em == "Anger":
+          colors.append("#ff5252")
+      elif em == "Sadness":
+          colors.append("#5269ff")
+      elif em == "Fear":
+          colors.append("#9d52ff")
+      elif em == "Surprise":
+          colors.append("#95eddd")
+      elif em == "Disgust":
+          colors.append("#aaed95")
+      elif em == "Neutral":
+          colors.append("#c3c4c2")
+    st.line_chart(df.set_index('Date')[emotions_col],color=colors)
 
 
 # happiness score chart

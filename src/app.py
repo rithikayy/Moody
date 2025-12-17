@@ -19,7 +19,7 @@ if os.path.exists(file_path):
 else:
     df = pd.DataFrame(columns=columns)
 
-df = pd.DataFrame(columns=columns) 
+# df = pd.DataFrame(columns=columns) 
 
 def add_to_df(data, df):
     df.loc[len(df)] = data
@@ -37,17 +37,19 @@ def ask_ai(df):
        latest_entry = data_frame.iloc[-1]['Text']
    else:
        latest_entry = "No journal entries yet."
+    
+   return "How's your day"
 
-   new_q = latest_entry + "Ask a question based on this journal entry. Keep it open-ended and be specific! If it's empty or not much content, just ask a basic open-ended question like 'how's your day?' BE STRAIGHTFORWARD AND BRIEF. DO NOT MAKE UP YOUR OWN JOURNAL ENTRY"
+#    new_q = latest_entry + "Ask a question based on this journal entry. Keep it open-ended and be specific! If it's empty or not much content, just ask a basic open-ended question like 'how's your day?' BE STRAIGHTFORWARD AND BRIEF. DO NOT MAKE UP YOUR OWN JOURNAL ENTRY"
 
-   response = client.models.generate_content(
-       model="gemini-2.5-flash",
-       contents=new_q,
-       config=types.GenerateContentConfig(
-           thinking_config=types.ThinkingConfig(thinking_budget=0) # Disables thinking
-       ),
-   )
-   return response.text
+#    response = client.models.generate_content(
+#        model="gemini-2.5-flash",
+#        contents=new_q,
+#        config=types.GenerateContentConfig(
+#            thinking_config=types.ThinkingConfig(thinking_budget=0) # Disables thinking
+#        ),
+#    )
+#    return response.text
 
 home_page = st.Page(
     "views/homepage.py",
