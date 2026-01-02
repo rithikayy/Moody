@@ -6,3 +6,5 @@ google-genai
 python-dotenv
 streamlit-drawable-canvas
 torch
+scikit-learn
+pillow
