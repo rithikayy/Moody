@@ -137,13 +137,12 @@ col2.metric("Test R²", f"{r2_score(y_test, y_fore):.3f}")
 
 st.subheader("☁️ Tomorrow's Happiness Forecast")
 
-# Get the most recent data point
+# Predict tomorrow
+
 last_row = new_df[['Lag_1', 'Lag_2', 'Lag_3']].iloc[-1:]
 
-# Predict tomorrow
 tomorrow_prediction = model.predict(last_row)[0]
 
-# Display
 st.metric(
     label="Predicted Happiness Score for Tomorrow",
     value=f"{tomorrow_prediction:.2f}",
