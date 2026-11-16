@@ -38,18 +38,20 @@ def ask_ai(df):
    else:
        latest_entry = "No journal entries yet."
     
-   return "How's your day"
+#    return "How's your day"
 
-#    new_q = latest_entry + "Ask a question based on this journal entry. Keep it open-ended and be specific! If it's empty or not much content, just ask a basic open-ended question like 'how's your day?' BE STRAIGHTFORWARD AND BRIEF. DO NOT MAKE UP YOUR OWN JOURNAL ENTRY"
+   new_q = latest_entry + "Ask a journal-entry like question based on this journal entry. Keep it open-ended and be specific! "
+   "If 'No journal entries yet.' or not much content, ask a basic open-ended question like 'how's your day?' BE STRAIGHTFORWARD AND BRIEF. "
+   "DO NOT MAKE UP YOUR OWN JOURNAL ENTRY. DO NOT EXPLAIN YOUR REASONING BEHIND THE QUESTION CHOSEN."
 
-#    response = client.models.generate_content(
-#        model="gemini-2.5-flash",
-#        contents=new_q,
-#        config=types.GenerateContentConfig(
-#            thinking_config=types.ThinkingConfig(thinking_budget=0) # Disables thinking
-#        ),
-#    )
-#    return response.text
+   response = client.models.generate_content(
+       model="gemini-3.8-flash",
+       contents=new_q,
+       config=types.GenerateContentConfig(
+           thinking_config=types.ThinkingConfig(thinking_budget=0) # Disables thinking
+       ),
+   )
+   return response.text
 
 home_page = st.Page(
     "views/homepage.py",

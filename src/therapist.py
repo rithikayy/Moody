@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
-model = "gemini-2.5-flash"
+model = "gemini-3.8-flash"
 
 system_instruction = types.Part(text="""
 Your name is Mr.Moo, you are a psychotherapist with a PhD in neuroscience. 

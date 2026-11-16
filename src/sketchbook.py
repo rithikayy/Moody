@@ -25,7 +25,7 @@ def sketchai(pic_path):
   )
 
   response = client.models.generate_content(
-      model='gemini-2.5-flash',
+      model='gemini-3.8-flash',
       contents=[
         types.Part.from_bytes(
           data=image_bytes,
@@ -49,7 +49,7 @@ def sketchai(pic_path):
   new_q = ("describe the drawing in one or two sentences max.")
 
   draw_response = client.models.generate_content(
-      model='gemini-2.5-flash',
+      model='gemini-3.8-flash',
       contents=[
         types.Part.from_bytes(
           data=image_bytes,
